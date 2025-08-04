@@ -1,0 +1,4 @@
+comtypes
+fastapi
+tqdm
+requests
