@@ -2,3 +2,7 @@ comtypes
 fastapi
 tqdm
 requests
+uvicorn
+sqlalchemy
+passlib
+bcrypt
