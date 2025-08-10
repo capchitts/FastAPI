@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Response, HTMLResponse, PlainTextResponse, Form
+from fastapi import APIRouter, Response, Form
+from fastapi.responses import HTMLResponse, PlainTextResponse
 
 router = APIRouter(prefix='/product',tags=['product'])
 

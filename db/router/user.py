@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
-from schemas import UserBase, UserDisplay
+from db.schemas import UserBase, UserDisplay
 from sqlalchemy.orm import Session
-from database import get_db
+from db.database import get_db
 from typing import List
-from db_user import *
+from db.db_user import *
 
 router = APIRouter(prefix='/user',tags=['user'])
 

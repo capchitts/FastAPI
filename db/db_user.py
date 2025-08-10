@@ -1,7 +1,7 @@
 from sqlalchemy.orm.session import Session
-from schemas import UserBase
-from models import DbUser
-from hash import Hash
+from db.schemas import UserBase
+from db.models import DbUser
+from db.hash import Hash
 from fastapi import HTTPException, status
 
 def create_user(db:Session, request:UserBase):
@@ -25,6 +25,14 @@ def read_user(db:Session, id:int):
     if not user:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f'User with {id} not found!')
+    return user
+    
+def read_user_by_username(db:Session, username:str):
+    user = db.query(DbUser).filter(DbUser.id==id).first()
+    if not user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f'User with {username} not found!')
+    return user
 
 def update_user(db:Session,id:int,request:UserBase):
     user = db.query(DbUser).filter(DbUser.id==id)
